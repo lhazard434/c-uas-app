@@ -1,0 +1,92 @@
+<div class="container">
+  <!-- Product Section -->
+  <div class="product-section">
+    <img [src]="product.image" [alt]="product.name" class="product-image">
+    <div class="product-info">
+      <h1>{{ product.name }}</h1>
+      <p class="price">${{ product.price }}</p>
+      <p class="description">{{ product.description }}</p>
+      <div class="rating-summary">
+        <div class="stars">
+          <span *ngFor="let star of [1,2,3,4,5]" 
+                [class.filled]="star <= averageRating">★</span>
+        </div>
+        <span class="rating-text">{{ averageRating }} out of 5 ({{ reviews.length }} reviews)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Review Form -->
+  <div class="review-form-section">
+    <h2>Write a Review</h2>
+    <form (ngSubmit)="handleSubmitReview()" #reviewForm="ngForm">
+      <div class="form-group">
+        <label for="author">Your Name *</label>
+        <input 
+          type="text" 
+          id="author" 
+          name="author"
+          [(ngModel)]="newReview.author" 
+          required
+          class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Your Rating *</label>
+        <div class="rating-input">
+          <span *ngFor="let star of [1,2,3,4,5]"
+                class="star"
+                [class.filled]="star <= (hoveredRating || newReview.rating)"
+                (click)="newReview.rating = star"
+                (mouseenter)="hoveredRating = star"
+                (mouseleave)="hoveredRating = 0">★</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="title">Review Title *</label>
+        <input 
+          type="text" 
+          id="title" 
+          name="title"
+          [(ngModel)]="newReview.title" 
+          required
+          class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="comment">Your Review *</label>
+        <textarea 
+          id="comment" 
+          name="comment"
+          [(ngModel)]="newReview.comment" 
+          required
+          rows="4"
+          class="form-control"></textarea>
+      </div>
+
+      <button type="submit" [disabled]="!reviewForm.valid" class="submit-btn">
+        Submit Review
+      </button>
+    </form>
+  </div>
+
+  <!-- Reviews List -->
+  <div class="reviews-section">
+    <h2>Customer Reviews</h2>
+    <div class="review-card" *ngFor="let review of reviews">
+      <div class="review-header">
+        <div>
+          <div class="review-author">{{ review.author }}</div>
+          <div class="stars">
+            <span *ngFor="let star of [1,2,3,4,5]" 
+                  [class.filled]="star <= review.rating">★</span>
+          </div>
+        </div>
+        <span class="review-date">{{ review.date }}</span>
+      </div>
+      <h3 class="review-title">{{ review.title }}</h3>
+      <p class="review-comment">{{ review.comment }}</p>
+    </div>
+  </div>
+</div>
