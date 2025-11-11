@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="header-section">
+    <h1>Counter UAS Systems</h1>
+  </div>
+
+  <div class="products-grid">
+    <div class="product-card" *ngFor="let product of products">
+      <div class="product-image-container">
+        <img [src]="product.image" [alt]="product.name" class="product-image">
+        <span class="category-badge">{{ product.category }}</span>
+      </div>
+      
+      <div class="product-content">
+        <div class="product-header">
+          <h2 class="product-name">{{ product.name }}</h2>
+          <p class="manufacturer">{{ product.manufacturer }}</p>
+        </div>
+        <p class="product-description">{{ product.shortDescription }}</p>
+        
+        <div class="product-footer">
+          <div class="rating-section">
+            <div class="stars">
+              <span *ngFor="let star of [1,2,3,4,5]" class="star-container">
+                <span class="star-bg">★</span>
+                <span class="star-fill" [style.width.%]="getStarFillPercentage(star, product.averageRating)">★</span>
+              </span>
+            </div>
+            <span class="rating-text">{{ product.averageRating }} ({{ product.reviewCount }})</span>
+          </div>
+          
+          <a [routerLink]="['/product-review', product.id]" class="view-btn">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

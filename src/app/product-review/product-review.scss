@@ -29,6 +29,22 @@
   color: #1a1a1a;
 }
 
+.manufacturer {
+  font-size: 13px;
+  color: #2563eb;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.category {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 10px 0;
+  font-weight: 500;
+}
+
 .price {
   font-size: 28px;
   font-weight: bold;
@@ -40,6 +56,28 @@
   color: #666;
   line-height: 1.6;
   margin: 20px 0;
+}
+
+.specifications {
+  margin: 20px 0;
+  
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 12px 0;
+  }
+  
+  ul {
+    margin: 0;
+    padding-left: 20px;
+    
+    li {
+      color: #4b5563;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+  }
 }
 
 .rating-summary {
@@ -60,6 +98,10 @@
 }
 
 .stars span.filled {
+  color: #fbbf24;
+}
+
+.stars span.half {
   color: #fbbf24;
 }
 

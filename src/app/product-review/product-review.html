@@ -1,15 +1,28 @@
-<div class="container">
+<div class="container" *ngIf="product">
   <!-- Product Section -->
   <div class="product-section">
     <img [src]="product.image" [alt]="product.name" class="product-image">
     <div class="product-info">
+      <p class="manufacturer">{{ product.manufacturer }}</p>
       <h1>{{ product.name }}</h1>
-      <p class="price">${{ product.price }}</p>
+      <p class="category">{{ product.category }}</p>
+      <p class="price">{{ product.price }}</p>
       <p class="description">{{ product.description }}</p>
+      
+      <div class="specifications" *ngIf="product.specifications">
+        <h3>Specifications</h3>
+        <ul>
+          <li *ngFor="let spec of product.specifications">{{ spec }}</li>
+        </ul>
+      </div>
+      
       <div class="rating-summary">
         <div class="stars">
           <span *ngFor="let star of [1,2,3,4,5]" 
-                [class.filled]="star <= averageRating">★</span>
+                [class.filled]="star <= averageRating"
+                [class.half]="star === Math.ceil(averageRating) && averageRating % 1 !== 0">
+            {{ star <= Math.floor(averageRating) ? '★' : (star === Math.ceil(averageRating) && averageRating % 1 !== 0 ? '⯨' : '☆') }}
+          </span>
         </div>
         <span class="rating-text">{{ averageRating }} out of 5 ({{ reviews.length }} reviews)</span>
       </div>
@@ -79,8 +92,9 @@
         <div>
           <div class="review-author">{{ review.author }}</div>
           <div class="stars">
-            <span *ngFor="let star of [1,2,3,4,5]" 
-                  [class.filled]="star <= review.rating">★</span>
+            <span *ngFor="let star of [1,2,3,4,5]">
+              {{ star <= review.rating ? '★' : '☆' }}
+            </span>
           </div>
         </div>
         <span class="review-date">{{ review.date }}</span>
