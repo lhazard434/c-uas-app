@@ -1,0 +1,182 @@
+<div class="review-container">
+  
+  <!-- Introduction Step -->
+  <div *ngIf="currentStep === 'intro'" class="step intro-step">
+    <div class="header">
+      <h1>System Feedback Form</h1>
+      <p class="time-estimate">⏱️ Takes 1-2 minutes</p>
+    </div>
+    
+    <div class="intro-content">
+      <p class="purpose">
+        Your operational feedback directly impacts procurement decisions at the unit and battalion level. 
+        This brief survey helps ensure warfighters get the most effective c-UAS systems for their mission requirements.
+      </p>
+      
+      <div class="form-group">
+        <label for="systemName">
+          System Being Reviewed <span class="required">*</span>
+        </label>
+        <input 
+          type="text" 
+          id="systemName"
+          [(ngModel)]="systemName"
+          [disabled]="isProductPageReview"
+          placeholder="Enter c-UAS system name"
+          class="input-field"
+        />
+      </div>
+      
+      <button 
+        class="btn btn-primary"
+        [disabled]="!canProceedToReview"
+        (click)="startReview()"
+      >
+        Begin Review
+      </button>
+    </div>
+  </div>
+  
+  <!-- Review Step -->
+  <div *ngIf="currentStep === 'review'" class="step review-step">
+    <div class="header">
+      <h1>Reviewing: {{ systemName }}</h1>
+      <p class="subtitle">Rate each area and optionally provide details</p>
+    </div>
+    
+    <div class="review-form">
+      
+      <!-- Operator Experience Section -->
+      <section class="experience-section">
+        <h2>Your Experience</h2>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="yearsOfService">
+              Years of Military Service <span class="required">*</span>
+            </label>
+            <select id="yearsOfService" [(ngModel)]="yearsOfService" class="input-field">
+              <option value="">Select...</option>
+              <option value="<1">Less than 1 year</option>
+              <option value="1-3">1-3 years</option>
+              <option value="4-6">4-6 years</option>
+              <option value="7-10">7-10 years</option>
+              <option value="10+">10+ years</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="cuasExperience">
+              c-UAS System Experience <span class="required">*</span>
+            </label>
+            <select id="cuasExperience" [(ngModel)]="cuasExperience" class="input-field">
+              <option value="">Select...</option>
+              <option value="<3months">Less than 3 months</option>
+              <option value="3-6months">3-6 months</option>
+              <option value="6-12months">6-12 months</option>
+              <option value="1-2years">1-2 years</option>
+              <option value="2+years">2+ years</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="operatorRole">
+              Role/MOS <span class="required">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="operatorRole"
+              [(ngModel)]="operatorRole"
+              placeholder="e.g., 35N, Electronic Warfare Officer"
+              class="input-field"
+            />
+          </div>
+          
+          <div class="form-group">
+            <label for="previousSystems">
+              Other c-UAS Systems Used (Optional)
+            </label>
+            <input 
+              type="text" 
+              id="previousSystems"
+              [(ngModel)]="previousSystems"
+              placeholder="e.g., DroneDefender, SkyWall"
+              class="input-field"
+            />
+          </div>
+        </div>
+      </section>
+      
+      <!-- Rating Categories -->
+      <section class="categories-section">
+        <h2>System Performance</h2>
+        
+        <div *ngFor="let category of categories" class="category-card">
+          <div class="category-header">
+            <h3>{{ category.title }}</h3>
+            <p class="category-description">{{ category.description }}</p>
+          </div>
+          
+          <div class="rating-section">
+            <label class="rating-label">
+              Rating <span class="required">*</span>
+            </label>
+            <div class="star-rating">
+              <span 
+                *ngFor="let star of [1, 2, 3, 4, 5]"
+                class="star"
+                [class.filled]="star <= category.rating"
+                (click)="setRating(category, star)"
+                (mouseenter)="category.rating === 0 && setRating(category, star)"
+              >
+                ★
+              </span>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label [for]="'comment-' + category.id">
+              Additional Details (Optional)
+            </label>
+            <textarea
+              [id]="'comment-' + category.id"
+              [(ngModel)]="category.comment"
+              placeholder="Share specific examples or context..."
+              class="textarea-field"
+              rows="2"
+            ></textarea>
+          </div>
+        </div>
+      </section>
+      
+      <button 
+        class="btn btn-primary btn-submit"
+        [disabled]="!canSubmitReview"
+        (click)="submitReview()"
+      >
+        Submit Review
+      </button>
+      
+      <p *ngIf="!canSubmitReview" class="validation-message">
+        Please complete all required fields (marked with *)
+      </p>
+    </div>
+  </div>
+  
+  <!-- Completion Step -->
+  <div *ngIf="currentStep === 'complete'" class="step complete-step">
+    <div class="success-icon">✓</div>
+    <h1>Thank You!</h1>
+    <p class="thank-you-message">
+      Your feedback has been submitted and will directly contribute to improving c-UAS procurement 
+      decisions. Your operational insights help ensure units receive the most effective systems 
+      for their mission requirements.
+    </p>
+    <p class="secondary-message">
+      This window can now be closed.
+    </p>
+  </div>
+  
+</div>
