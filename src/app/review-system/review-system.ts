@@ -9,6 +9,7 @@ interface ReviewCategory {
   description: string;
   rating: number;
   comment: string;
+  notApplicable: boolean;
 }
 
 @Component({
@@ -31,6 +32,9 @@ export class ReviewSystem {
   operatorRole: string = '';
   previousSystems: string = '';
   
+  // Additional feedback
+  additionalFeedback: string = '';
+  
   // Review categories
   categories: ReviewCategory[] = [
     {
@@ -38,35 +42,40 @@ export class ReviewSystem {
       title: 'Transportability & Mobility',
       description: 'Ease of deployment, movement, and setup in various operational environments',
       rating: 0,
-      comment: ''
+      comment: '',
+      notApplicable: false
     },
     {
       id: 'ease_of_use',
       title: 'Ease of Use',
       description: 'User interface intuitiveness, training requirements, and operator-friendliness',
       rating: 0,
-      comment: ''
+      comment: '',
+      notApplicable: false
     },
     {
       id: 'interoperability',
       title: 'Interoperability',
       description: 'Integration capability with existing command and control systems',
       rating: 0,
-      comment: ''
+      comment: '',
+      notApplicable: false
     },
     {
       id: 'detection_effectiveness',
       title: 'Detection & Effectiveness',
       description: 'Range, accuracy, and reliability in identifying and responding to threats',
       rating: 0,
-      comment: ''
+      comment: '',
+      notApplicable: false
     },
     {
       id: 'reliability',
       title: 'System Reliability',
       description: 'Consistency of performance and uptime in operational conditions',
       rating: 0,
-      comment: ''
+      comment: '',
+      notApplicable: false
     }
   ];
   
@@ -79,7 +88,7 @@ export class ReviewSystem {
   }
   
   get canSubmitReview(): boolean {
-    const allRatingsComplete = this.categories.every(cat => cat.rating > 0);
+    const allRatingsComplete = this.categories.every(cat => cat.rating > 0 || cat.notApplicable);
     const experienceComplete = this.yearsOfService && this.cuasExperience && this.operatorRole;
     return allRatingsComplete && !!experienceComplete;
   }
@@ -102,7 +111,8 @@ export class ReviewSystem {
           operatorRole: this.operatorRole,
           previousSystems: this.previousSystems
         },
-        ratings: this.categories
+        ratings: this.categories,
+        additionalFeedback: this.additionalFeedback
       });
       
       this.currentStep = 'complete';
@@ -112,6 +122,15 @@ export class ReviewSystem {
   // Star rating helper
   setRating(category: ReviewCategory, rating: number): void {
     category.rating = rating;
+    category.notApplicable = false; // Clear N/A if they rate
+  }
+  
+  // Toggle N/A
+  toggleNotApplicable(category: ReviewCategory): void {
+    category.notApplicable = !category.notApplicable;
+    if (category.notApplicable) {
+      category.rating = 0; // Clear rating if N/A is selected
+    }
   }
   
   // Initialize with product name if coming from product page
