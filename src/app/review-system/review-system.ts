@@ -27,9 +27,7 @@ export class ReviewSystem {
   isProductPageReview: boolean = false;
   
   // Operator experience
-  yearsOfService: string = '';
   cuasExperience: string = '';
-  operatorRole: string = '';
   previousSystems: string = '';
   
   // Additional feedback
@@ -89,7 +87,7 @@ export class ReviewSystem {
   
   get canSubmitReview(): boolean {
     const allRatingsComplete = this.categories.every(cat => cat.rating > 0 || cat.notApplicable);
-    const experienceComplete = this.yearsOfService && this.cuasExperience && this.operatorRole;
+    const experienceComplete = this.cuasExperience;
     return allRatingsComplete && !!experienceComplete;
   }
   
@@ -106,9 +104,7 @@ export class ReviewSystem {
       console.log('Review submitted:', {
         systemName: this.systemName,
         experience: {
-          yearsOfService: this.yearsOfService,
           cuasExperience: this.cuasExperience,
-          operatorRole: this.operatorRole,
           previousSystems: this.previousSystems
         },
         ratings: this.categories,

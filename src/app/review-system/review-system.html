@@ -52,20 +52,6 @@
         
         <div class="form-row">
           <div class="form-group">
-            <label for="yearsOfService">
-              Years of Military Service <span class="required">*</span>
-            </label>
-            <select id="yearsOfService" [(ngModel)]="yearsOfService" class="input-field">
-              <option value="">Select...</option>
-              <option value="<1">Less than 1 year</option>
-              <option value="1-3">1-3 years</option>
-              <option value="4-6">4-6 years</option>
-              <option value="7-10">7-10 years</option>
-              <option value="10+">10+ years</option>
-            </select>
-          </div>
-          
-          <div class="form-group">
             <label for="cuasExperience">
               c-UAS System Experience <span class="required">*</span>
             </label>
@@ -77,21 +63,6 @@
               <option value="1-2years">1-2 years</option>
               <option value="2+years">2+ years</option>
             </select>
-          </div>
-        </div>
-        
-        <div class="form-row">
-          <div class="form-group">
-            <label for="operatorRole">
-              Role/MOS <span class="required">*</span>
-            </label>
-            <input 
-              type="text" 
-              id="operatorRole"
-              [(ngModel)]="operatorRole"
-              placeholder="e.g., 35N, Electronic Warfare Officer"
-              class="input-field"
-            />
           </div>
           
           <div class="form-group">
@@ -123,16 +94,26 @@
             <label class="rating-label">
               Rating <span class="required">*</span>
             </label>
-            <div class="star-rating">
+            <div class="star-rating" [class.disabled]="category.notApplicable">
               <span 
                 *ngFor="let star of [1, 2, 3, 4, 5]"
                 class="star"
                 [class.filled]="star <= category.rating"
-                (click)="setRating(category, star)"
-                (mouseenter)="category.rating === 0 && setRating(category, star)"
+                [class.disabled]="category.notApplicable"
+                (click)="!category.notApplicable && setRating(category, star)"
               >
                 ★
               </span>
+            </div>
+            <div class="na-option">
+              <label class="na-checkbox">
+                <input 
+                  type="checkbox"
+                  [checked]="category.notApplicable"
+                  (change)="toggleNotApplicable(category)"
+                />
+                <span>Not Applicable to My Experience</span>
+              </label>
             </div>
           </div>
           
@@ -148,6 +129,26 @@
               rows="2"
             ></textarea>
           </div>
+        </div>
+      </section>
+      
+      <!-- Additional Feedback Section -->
+      <section class="additional-feedback-section">
+        <h2>Additional Feedback</h2>
+        <div class="form-group">
+          <label for="additionalFeedback">
+            Anything else we should know? (Optional)
+          </label>
+          <textarea
+            id="additionalFeedback"
+            [(ngModel)]="additionalFeedback"
+            placeholder="Share any additional insights, concerns, or recommendations about this system..."
+            class="textarea-field"
+            rows="4"
+          ></textarea>
+          <p class="helper-text">
+            This could include operational context, specific scenarios, recommendations for improvement, or any other relevant information.
+          </p>
         </div>
       </section>
       
