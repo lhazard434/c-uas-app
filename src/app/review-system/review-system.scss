@@ -78,6 +78,92 @@
   }
 }
 
+// Autocomplete Dropdown
+.autocomplete-wrapper {
+  position: relative;
+  
+  .dropdown-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 40px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    border-radius: 0 6px 6px 0;
+    
+    &:hover {
+      background-color: #f5f5f5;
+    }
+    
+    .dropdown-icon {
+      font-size: 0.8rem;
+      color: #666;
+      transition: transform 0.2s;
+    }
+    
+    &.active .dropdown-icon {
+      transform: rotate(180deg);
+    }
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 300px;
+    overflow-y: auto;
+    background: white;
+    border: 2px solid #1976d2;
+    border-radius: 6px;
+    margin-top: 4px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    
+    .dropdown-item {
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      border-bottom: 1px solid #f0f0f0;
+      transition: background-color 0.2s;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      &:hover {
+        background-color: #f5f5f5;
+      }
+      
+      &.no-results {
+        color: #999;
+        cursor: default;
+        text-align: center;
+        
+        &:hover {
+          background-color: white;
+        }
+      }
+      
+      .product-name {
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 0.25rem;
+      }
+      
+      .product-details {
+        font-size: 0.85rem;
+        color: #666;
+      }
+    }
+  }
+}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;

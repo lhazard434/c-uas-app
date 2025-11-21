@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ProductService, Product } from '../product.service';
+import { ClickOutsideDirective } from '../click-outside.directive';
 
 interface ReviewCategory {
   id: string;
@@ -14,11 +16,13 @@ interface ReviewCategory {
 
 @Component({
   selector: 'app-review-system',
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, ClickOutsideDirective],
   templateUrl: './review-system.html',
   styleUrl: './review-system.scss',
 })
-export class ReviewSystem {
+export class ReviewSystem implements OnInit {
+  // Available products
+  availableProducts: Product[] = [];
   // Form state
   currentStep: 'intro' | 'review' | 'complete' = 'intro';
   
@@ -32,6 +36,9 @@ export class ReviewSystem {
   
   // Additional feedback
   additionalFeedback: string = '';
+  
+  // UI State
+  showProductDropdown: boolean = false;
   
   // Review categories
   categories: ReviewCategory[] = [
@@ -76,6 +83,34 @@ export class ReviewSystem {
       notApplicable: false
     }
   ];
+  
+  constructor(private productService: ProductService) {}
+  
+  ngOnInit(): void {
+    this.availableProducts = this.productService.getAllProducts();
+  }
+  
+  // Product selection methods
+  selectProduct(product: Product): void {
+    this.systemName = product.name;
+    this.showProductDropdown = false;
+  }
+  
+  toggleProductDropdown(): void {
+    this.showProductDropdown = !this.showProductDropdown;
+  }
+  
+  get filteredProducts(): Product[] {
+    if (!this.systemName) {
+      return this.availableProducts;
+    }
+    const searchTerm = this.systemName.toLowerCase();
+    return this.availableProducts.filter(p => 
+      p.name.toLowerCase().includes(searchTerm) ||
+      p.manufacturer.toLowerCase().includes(searchTerm) ||
+      p.category.toLowerCase().includes(searchTerm)
+    );
+  }
   
   // Validation
   get canProceedToReview(): boolean {

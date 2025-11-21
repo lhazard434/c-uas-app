@@ -17,14 +17,47 @@
         <label for="systemName">
           System Being Reviewed <span class="required">*</span>
         </label>
-        <input 
-          type="text" 
-          id="systemName"
-          [(ngModel)]="systemName"
-          [disabled]="isProductPageReview"
-          placeholder="Enter c-UAS system name"
-          class="input-field"
-        />
+        <div class="autocomplete-wrapper" (clickOutside)="showProductDropdown = false">
+          <input 
+            type="text" 
+            id="systemName"
+            [(ngModel)]="systemName"
+            [disabled]="isProductPageReview"
+            (focus)="showProductDropdown = true"
+            (input)="showProductDropdown = true"
+            placeholder="Enter or select c-UAS system name"
+            class="input-field"
+            autocomplete="off"
+          />
+          <button 
+            *ngIf="!isProductPageReview"
+            type="button"
+            class="dropdown-toggle"
+            (click)="toggleProductDropdown()"
+            [class.active]="showProductDropdown"
+          >
+            <span class="dropdown-icon">▼</span>
+          </button>
+          
+          <div 
+            *ngIf="showProductDropdown && !isProductPageReview" 
+            class="dropdown-menu"
+          >
+            <div 
+              *ngFor="let product of filteredProducts"
+              class="dropdown-item"
+              (click)="selectProduct(product)"
+            >
+              <div class="product-name">{{ product.name }}</div>
+              <div class="product-details">
+                {{ product.manufacturer }} • {{ product.category }}
+              </div>
+            </div>
+            <div *ngIf="filteredProducts.length === 0" class="dropdown-item no-results">
+              No matching systems found
+            </div>
+          </div>
+        </div>
       </div>
       
       <button 
