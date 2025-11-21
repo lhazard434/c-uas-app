@@ -1,111 +1,445 @@
 <div class="container" *ngIf="product">
-  <!-- Product Section -->
-  <div class="product-section">
-    <img [src]="product.image" [alt]="product.name" class="product-image">
-    <div class="product-info">
-      <p class="manufacturer">{{ product.manufacturer }}</p>
-      <h1>{{ product.name }}</h1>
-      <p class="category">{{ product.category }}</p>
-      <p class="price">{{ product.price }}</p>
-      <p class="description">{{ product.description }}</p>
-      
-      <div class="specifications" *ngIf="product.specifications">
-        <h3>Specifications</h3>
-        <ul>
-          <li *ngFor="let spec of product.specifications">{{ spec }}</li>
-        </ul>
+  <!-- Product Section with Ratings Side by Side -->
+  <div class="product-ratings-wrapper">
+    <!-- Left: Product Details -->
+    <div class="product-section">
+      <div class="image-rating-container">
+        <img [src]="product.image" [alt]="product.name" class="product-image">
+        
+        <!-- AI Summary and Review Product Buttons -->
+        <div class="action-buttons-container">
+          <!-- AI Summary Button -->
+          <div class="ai-summary-button-container">
+            <button 
+              class="generate-summary-btn" 
+              (click)="generateReviewSummary()" 
+              [disabled]="isGeneratingSummary"
+              *ngIf="!showSummary">
+              <svg *ngIf="!isGeneratingSummary" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <div *ngIf="isGeneratingSummary" class="loading-spinner"></div>
+              <span>{{ isGeneratingSummary ? 'Generating...' : 'AI Summary' }}</span>
+            </button>
+
+            <button 
+              class="toggle-summary-btn" 
+              (click)="toggleSummary()" 
+              *ngIf="showSummary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"/>
+              </svg>
+              <span>{{ showSummary ? 'Hide Summary' : 'Show Summary' }}</span>
+            </button>
+          </div>
+
+          <!-- Review Product Button -->
+          <div class="review-product-button-container">
+            <button 
+              class="review-product-btn" 
+              (click)="toggleReviewForm()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+              </svg>
+              <span>Review Product</span>
+            </button>
+          </div>
+        </div>
+        
+        <div class="overall-rating-badge">
+          <div class="rating-value">{{ categoryRatings.overall }}</div>
+          <div class="stars">
+            <span *ngFor="let star of [1,2,3,4,5]" 
+                  [class.filled]="star <= categoryRatings.overall"
+                  [class.half]="star === Math.ceil(categoryRatings.overall) && categoryRatings.overall % 1 !== 0">
+              {{ star <= Math.floor(categoryRatings.overall) ? '★' : (star === Math.ceil(categoryRatings.overall) && categoryRatings.overall % 1 !== 0 ? '⯨' : '☆') }}
+            </span>
+          </div>
+          <div class="rating-details">Overall Rating</div>
+          <div class="review-count">{{ categoryRatings.count }} reviews</div>
+        </div>
+
+        <!-- AI Summary Display Section -->
+        <div class="summary-display-section" *ngIf="showSummary">
+          <div class="summary-header">
+            <h4>AI-Generated Review Summary</h4>
+            <button class="regenerate-btn" (click)="generateReviewSummary()" [disabled]="isGeneratingSummary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <polyline points="1 20 1 14 7 14"></polyline>
+                <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+              </svg>
+            </button>
+          </div>
+          <p class="summary-text">{{ reviewSummary }}</p>
+        </div>
       </div>
+      <div class="product-info">
+        <p class="manufacturer">{{ product.manufacturer }}</p>
+        <h1>{{ product.name }}</h1>
+        <p class="category">{{ product.category }}</p>
+        <p class="price">{{ product.price }}</p>
+        <p class="description">{{ product.description }}</p>
+        
+        <div class="specifications" *ngIf="product.specifications">
+          <h3>Specifications</h3>
+          <ul>
+            <li *ngFor="let spec of product.specifications">{{ spec }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Category Ratings -->
+    <div class="category-ratings-section">
+      <h2>Average Ratings by Category</h2>
       
-      <div class="rating-summary">
+      <div class="category-rating-card">
+        <div class="category-header">
+          <h3>Transportability & Mobility</h3>
+          <span class="rating-score">{{ categoryRatings.transportability }}/5</span>
+        </div>
+        <p class="category-description">Ease of deployment, movement, and setup in various operational environments</p>
         <div class="stars">
           <span *ngFor="let star of [1,2,3,4,5]" 
-                [class.filled]="star <= categoryRatings.overall"
-                [class.half]="star === Math.ceil(categoryRatings.overall) && categoryRatings.overall % 1 !== 0">
-            {{ star <= Math.floor(categoryRatings.overall) ? '★' : (star === Math.ceil(categoryRatings.overall) && categoryRatings.overall % 1 !== 0 ? '⯨' : '☆') }}
+                [class.filled]="star <= categoryRatings.transportability"
+                [class.half]="star === Math.ceil(categoryRatings.transportability) && categoryRatings.transportability % 1 !== 0">
+            {{ star <= Math.floor(categoryRatings.transportability) ? '★' : (star === Math.ceil(categoryRatings.transportability) && categoryRatings.transportability % 1 !== 0 ? '⯨' : '☆') }}
           </span>
         </div>
-        <span class="rating-text">{{ categoryRatings.overall }} out of 5 ({{ categoryRatings.count }} reviews)</span>
+      </div>
+
+      <div class="category-rating-card">
+        <div class="category-header">
+          <h3>Ease of Use</h3>
+          <span class="rating-score">{{ categoryRatings.easeOfUse }}/5</span>
+        </div>
+        <p class="category-description">User interface intuitiveness, training requirements, and operator friendliness</p>
+        <div class="stars">
+          <span *ngFor="let star of [1,2,3,4,5]" 
+                [class.filled]="star <= categoryRatings.easeOfUse"
+                [class.half]="star === Math.ceil(categoryRatings.easeOfUse) && categoryRatings.easeOfUse % 1 !== 0">
+            {{ star <= Math.floor(categoryRatings.easeOfUse) ? '★' : (star === Math.ceil(categoryRatings.easeOfUse) && categoryRatings.easeOfUse % 1 !== 0 ? '⯨' : '☆') }}
+          </span>
+        </div>
+      </div>
+
+      <div class="category-rating-card">
+        <div class="category-header">
+          <h3>Interoperability</h3>
+          <span class="rating-score">{{ categoryRatings.interoperability }}/5</span>
+        </div>
+        <p class="category-description">Integration capacity with existing command and control systems</p>
+        <div class="stars">
+          <span *ngFor="let star of [1,2,3,4,5]" 
+                [class.filled]="star <= categoryRatings.interoperability"
+                [class.half]="star === Math.ceil(categoryRatings.interoperability) && categoryRatings.interoperability % 1 !== 0">
+            {{ star <= Math.floor(categoryRatings.interoperability) ? '★' : (star === Math.ceil(categoryRatings.interoperability) && categoryRatings.interoperability % 1 !== 0 ? '⯨' : '☆') }}
+          </span>
+        </div>
+      </div>
+
+      <div class="category-rating-card">
+        <div class="category-header">
+          <h3>Detection & Effectiveness</h3>
+          <span class="rating-score">{{ categoryRatings.detection }}/5</span>
+        </div>
+        <p class="category-description">System's capability in detecting and responding to threats</p>
+        <div class="stars">
+          <span *ngFor="let star of [1,2,3,4,5]" 
+                [class.filled]="star <= categoryRatings.detection"
+                [class.half]="star === Math.ceil(categoryRatings.detection) && categoryRatings.detection % 1 !== 0">
+            {{ star <= Math.floor(categoryRatings.detection) ? '★' : (star === Math.ceil(categoryRatings.detection) && categoryRatings.detection % 1 !== 0 ? '⯨' : '☆') }}
+          </span>
+        </div>
+      </div>
+
+      <div class="category-rating-card">
+        <div class="category-header">
+          <h3>System Reliability</h3>
+          <span class="rating-score">{{ categoryRatings.reliability }}/5</span>
+        </div>
+        <p class="category-description">Consistency of performance and uptime in operational conditions</p>
+        <div class="stars">
+          <span *ngFor="let star of [1,2,3,4,5]" 
+                [class.filled]="star <= categoryRatings.reliability"
+                [class.half]="star === Math.ceil(categoryRatings.reliability) && categoryRatings.reliability % 1 !== 0">
+            {{ star <= Math.floor(categoryRatings.reliability) ? '★' : (star === Math.ceil(categoryRatings.reliability) && categoryRatings.reliability % 1 !== 0 ? '⯨' : '☆') }}
+          </span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Category Ratings Section -->
-  <div class="category-ratings-section">
-    <h2>Average Ratings by Category</h2>
+  <!-- Reviews Section -->
+  <div class="reviews-section" *ngIf="reviews.length > 0">
+    <h2>Reviews from Users ({{ reviews.length }})</h2>
     
-    <div class="category-rating-card">
-      <div class="category-header">
-        <h3>Transportability & Mobility</h3>
-        <span class="rating-score">{{ categoryRatings.transportability }}/5</span>
-      </div>
-      <p class="category-description">Ease of deployment, movement, and setup in various operational environments</p>
-      <div class="stars">
-        <span *ngFor="let star of [1,2,3,4,5]" 
-              [class.filled]="star <= categoryRatings.transportability"
-              [class.half]="star === Math.ceil(categoryRatings.transportability) && categoryRatings.transportability % 1 !== 0">
-          {{ star <= Math.floor(categoryRatings.transportability) ? '★' : (star === Math.ceil(categoryRatings.transportability) && categoryRatings.transportability % 1 !== 0 ? '⯨' : '☆') }}
-        </span>
+    <div class="reviews-grid">
+      <div class="review-card" *ngFor="let review of displayedReviews">
+        <div class="review-header">
+          <div class="reviewer-info">
+            <h3>{{ obfuscateName(review.author) }}</h3>
+            <p class="reviewer-details">{{ review.milService }} - {{ review.role }}</p>
+            <p class="review-date">{{ review.date }}</p>
+          </div>
+          <div class="review-overall-rating">
+            <div class="rating-number">
+              {{ ((review.categoryRatings.transportability + review.categoryRatings.easeOfUse + review.categoryRatings.interoperability + review.categoryRatings.detection + review.categoryRatings.reliability) / 5).toFixed(1) }}
+            </div>
+            <div class="rating-stars-small">
+              <span *ngFor="let star of [1,2,3,4,5]" 
+                    [class.filled]="star <= ((review.categoryRatings.transportability + review.categoryRatings.easeOfUse + review.categoryRatings.interoperability + review.categoryRatings.detection + review.categoryRatings.reliability) / 5)">
+                ★
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="review-ratings">
+          <div class="rating-item">
+            <span class="rating-label">Transportability:</span>
+            <span class="rating-value">{{ review.categoryRatings.transportability }}/5</span>
+            <div class="rating-bar">
+              <div class="rating-fill" [style.width.%]="(review.categoryRatings.transportability / 5) * 100"></div>
+            </div>
+          </div>
+          
+          <div class="rating-item">
+            <span class="rating-label">Ease of Use:</span>
+            <span class="rating-value">{{ review.categoryRatings.easeOfUse }}/5</span>
+            <div class="rating-bar">
+              <div class="rating-fill" [style.width.%]="(review.categoryRatings.easeOfUse / 5) * 100"></div>
+            </div>
+          </div>
+          
+          <div class="rating-item">
+            <span class="rating-label">Interoperability:</span>
+            <span class="rating-value">{{ review.categoryRatings.interoperability }}/5</span>
+            <div class="rating-bar">
+              <div class="rating-fill" [style.width.%]="(review.categoryRatings.interoperability / 5) * 100"></div>
+            </div>
+          </div>
+          
+          <div class="rating-item">
+            <span class="rating-label">Detection:</span>
+            <span class="rating-value">{{ review.categoryRatings.detection }}/5</span>
+            <div class="rating-bar">
+              <div class="rating-fill" [style.width.%]="(review.categoryRatings.detection / 5) * 100"></div>
+            </div>
+          </div>
+          
+          <div class="rating-item">
+            <span class="rating-label">Reliability:</span>
+            <span class="rating-value">{{ review.categoryRatings.reliability }}/5</span>
+            <div class="rating-bar">
+              <div class="rating-fill" [style.width.%]="(review.categoryRatings.reliability / 5) * 100"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="review-comments" *ngIf="review.additionalComments">
+          <div class="comment-item" *ngIf="review.additionalComments.transportability">
+            <strong>Transportability:</strong> {{ review.additionalComments.transportability }}
+          </div>
+          <div class="comment-item" *ngIf="review.additionalComments.easeOfUse">
+            <strong>Ease of Use:</strong> {{ review.additionalComments.easeOfUse }}
+          </div>
+          <div class="comment-item" *ngIf="review.additionalComments.interoperability">
+            <strong>Interoperability:</strong> {{ review.additionalComments.interoperability }}
+          </div>
+          <div class="comment-item" *ngIf="review.additionalComments.detection">
+            <strong>Detection:</strong> {{ review.additionalComments.detection }}
+          </div>
+          <div class="comment-item" *ngIf="review.additionalComments.reliability">
+            <strong>Reliability:</strong> {{ review.additionalComments.reliability }}
+          </div>
+        </div>
+        
+        <div class="other-systems" *ngIf="review.otherUASSystems">
+          <strong>Other Systems Used:</strong> {{ review.otherUASSystems }}
+        </div>
       </div>
     </div>
 
-    <div class="category-rating-card">
-      <div class="category-header">
-        <h3>Ease of Use</h3>
-        <span class="rating-score">{{ categoryRatings.easeOfUse }}/5</span>
-      </div>
-      <p class="category-description">User interface intuitiveness, training requirements, and operator friendliness</p>
-      <div class="stars">
-        <span *ngFor="let star of [1,2,3,4,5]" 
-              [class.filled]="star <= categoryRatings.easeOfUse"
-              [class.half]="star === Math.ceil(categoryRatings.easeOfUse) && categoryRatings.easeOfUse % 1 !== 0">
-          {{ star <= Math.floor(categoryRatings.easeOfUse) ? '★' : (star === Math.ceil(categoryRatings.easeOfUse) && categoryRatings.easeOfUse % 1 !== 0 ? '⯨' : '☆') }}
-        </span>
-      </div>
+    <!-- Load More Button -->
+    <div class="load-more-container" *ngIf="hasMoreReviews()">
+      <button class="load-more-btn" (click)="loadMoreReviews()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 13l3 3 7-7"/>
+          <path d="M12 2v10"/>
+        </svg>
+        Load More Reviews ({{ reviews.length - displayedReviews.length }} remaining)
+      </button>
+    </div>
+  </div>
+
+  <!-- Write Review Section -->
+  <div class="write-review-section">
+    <div class="write-review-header">
+      <h2>Write a Review</h2>
+      <p>Share your experience with this counter-UAS system</p>
     </div>
 
-    <div class="category-rating-card">
-      <div class="category-header">
-        <h3>Interoperability</h3>
-        <span class="rating-score">{{ categoryRatings.interoperability }}/5</span>
-      </div>
-      <p class="category-description">Integration capacity with existing command and control systems</p>
-      <div class="stars">
-        <span *ngFor="let star of [1,2,3,4,5]" 
-              [class.filled]="star <= categoryRatings.interoperability"
-              [class.half]="star === Math.ceil(categoryRatings.interoperability) && categoryRatings.interoperability % 1 !== 0">
-          {{ star <= Math.floor(categoryRatings.interoperability) ? '★' : (star === Math.ceil(categoryRatings.interoperability) && categoryRatings.interoperability % 1 !== 0 ? '⯨' : '☆') }}
-        </span>
-      </div>
+    <!-- Write Review Button -->
+    <div class="write-review-button-container" *ngIf="!showReviewForm">
+      <button class="write-review-btn" (click)="toggleReviewForm()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+        </svg>
+        Write Review with AI Summary
+      </button>
     </div>
 
-    <div class="category-rating-card">
-      <div class="category-header">
-        <h3>Detection & Effectiveness</h3>
-        <span class="rating-score">{{ categoryRatings.detection }}/5</span>
-      </div>
-      <p class="category-description">System's capability in detecting and responding to threats</p>
-      <div class="stars">
-        <span *ngFor="let star of [1,2,3,4,5]" 
-              [class.filled]="star <= categoryRatings.detection"
-              [class.half]="star === Math.ceil(categoryRatings.detection) && categoryRatings.detection % 1 !== 0">
-          {{ star <= Math.floor(categoryRatings.detection) ? '★' : (star === Math.ceil(categoryRatings.detection) && categoryRatings.detection % 1 !== 0 ? '⯨' : '☆') }}
-        </span>
-      </div>
-    </div>
+    <!-- Review Form -->
+    <div class="review-form-container" *ngIf="showReviewForm">
+      <form class="review-form" (ngSubmit)="submitReview()">
+        <!-- User Information -->
+        <div class="form-section">
+          <h3>Your Information</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="author">Name *</label>
+              <input type="text" id="author" [(ngModel)]="newReview.author" name="author" required placeholder="Your full name">
+            </div>
+            <div class="form-group">
+              <label for="milService">Military Service</label>
+              <select id="milService" [(ngModel)]="newReview.milService" name="milService">
+                <option value="">Select Service</option>
+                <option value="Army">Army</option>
+                <option value="Navy">Navy</option>
+                <option value="Air Force">Air Force</option>
+                <option value="Marines">Marines</option>
+                <option value="Coast Guard">Coast Guard</option>
+                <option value="Space Force">Space Force</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="role">Role/Position</label>
+              <input type="text" id="role" [(ngModel)]="newReview.role" name="role" placeholder="e.g., Squad Leader, Operator">
+            </div>
+          </div>
+        </div>
 
-    <div class="category-rating-card">
-      <div class="category-header">
-        <h3>System Reliability</h3>
-        <span class="rating-score">{{ categoryRatings.reliability }}/5</span>
-      </div>
-      <p class="category-description">Consistency of performance and uptime in operational conditions</p>
-      <div class="stars">
-        <span *ngFor="let star of [1,2,3,4,5]" 
-              [class.filled]="star <= categoryRatings.reliability"
-              [class.half]="star === Math.ceil(categoryRatings.reliability) && categoryRatings.reliability % 1 !== 0">
-          {{ star <= Math.floor(categoryRatings.reliability) ? '★' : (star === Math.ceil(categoryRatings.reliability) && categoryRatings.reliability % 1 !== 0 ? '⯨' : '☆') }}
-        </span>
-      </div>
+        <!-- AI Generate Button -->
+        <div class="ai-generate-section">
+          <button type="button" class="ai-generate-btn" (click)="generateAIReview()" [disabled]="isGeneratingReview">
+            <svg *ngIf="!isGeneratingReview" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <div *ngIf="isGeneratingReview" class="loading-spinner"></div>
+            <span>{{ isGeneratingReview ? 'Generating AI Review...' : 'Generate AI Review Content' }}</span>
+          </button>
+          <p class="ai-help-text">AI will generate realistic review content based on typical military operator feedback for this system</p>
+        </div>
+
+        <!-- Category Ratings -->
+        <div class="form-section">
+          <h3>Rate the System</h3>
+          
+          <div class="rating-category">
+            <div class="category-header">
+              <h4>Transportability & Mobility</h4>
+              <div class="star-rating">
+                <span *ngFor="let star of [1,2,3,4,5]" 
+                      [class.selected]="star <= newReview.categoryRatings.transportability"
+                      (click)="newReview.categoryRatings.transportability = star">
+                  ★
+                </span>
+                <span class="rating-number">{{ newReview.categoryRatings.transportability }}/5</span>
+              </div>
+            </div>
+            <textarea [(ngModel)]="newReview.additionalComments.transportability" name="transportabilityComment" 
+                      placeholder="Comments about deployment, movement, and setup..."></textarea>
+          </div>
+
+          <div class="rating-category">
+            <div class="category-header">
+              <h4>Ease of Use</h4>
+              <div class="star-rating">
+                <span *ngFor="let star of [1,2,3,4,5]" 
+                      [class.selected]="star <= newReview.categoryRatings.easeOfUse"
+                      (click)="newReview.categoryRatings.easeOfUse = star">
+                  ★
+                </span>
+                <span class="rating-number">{{ newReview.categoryRatings.easeOfUse }}/5</span>
+              </div>
+            </div>
+            <textarea [(ngModel)]="newReview.additionalComments.easeOfUse" name="easeOfUseComment" 
+                      placeholder="Comments about user interface, training requirements, and operator friendliness..."></textarea>
+          </div>
+
+          <div class="rating-category">
+            <div class="category-header">
+              <h4>Interoperability</h4>
+              <div class="star-rating">
+                <span *ngFor="let star of [1,2,3,4,5]" 
+                      [class.selected]="star <= newReview.categoryRatings.interoperability"
+                      (click)="newReview.categoryRatings.interoperability = star">
+                  ★
+                </span>
+                <span class="rating-number">{{ newReview.categoryRatings.interoperability }}/5</span>
+              </div>
+            </div>
+            <textarea [(ngModel)]="newReview.additionalComments.interoperability" name="interoperabilityComment" 
+                      placeholder="Comments about integration with existing command and control systems..."></textarea>
+          </div>
+
+          <div class="rating-category">
+            <div class="category-header">
+              <h4>Detection & Effectiveness</h4>
+              <div class="star-rating">
+                <span *ngFor="let star of [1,2,3,4,5]" 
+                      [class.selected]="star <= newReview.categoryRatings.detection"
+                      (click)="newReview.categoryRatings.detection = star">
+                  ★
+                </span>
+                <span class="rating-number">{{ newReview.categoryRatings.detection }}/5</span>
+              </div>
+            </div>
+            <textarea [(ngModel)]="newReview.additionalComments.detection" name="detectionComment" 
+                      placeholder="Comments about system's capability in detecting and responding to threats..."></textarea>
+          </div>
+
+          <div class="rating-category">
+            <div class="category-header">
+              <h4>System Reliability</h4>
+              <div class="star-rating">
+                <span *ngFor="let star of [1,2,3,4,5]" 
+                      [class.selected]="star <= newReview.categoryRatings.reliability"
+                      (click)="newReview.categoryRatings.reliability = star">
+                  ★
+                </span>
+                <span class="rating-number">{{ newReview.categoryRatings.reliability }}/5</span>
+              </div>
+            </div>
+            <textarea [(ngModel)]="newReview.additionalComments.reliability" name="reliabilityComment" 
+                      placeholder="Comments about consistency of performance and uptime in operational conditions..."></textarea>
+          </div>
+        </div>
+
+        <!-- Additional Information -->
+        <div class="form-section">
+          <h3>Additional Information</h3>
+          <div class="form-group">
+            <label for="otherSystems">Other UAS Systems You've Used</label>
+            <input type="text" id="otherSystems" [(ngModel)]="newReview.otherUASSystems" name="otherSystems" 
+                   placeholder="e.g., Raytheon Coyote, Boeing ScanEagle, Northrop RQ-4">
+          </div>
+        </div>
+
+        <!-- Form Actions -->
+        <div class="form-actions">
+          <button type="button" class="cancel-btn" (click)="toggleReviewForm()">Cancel</button>
+          <button type="submit" class="submit-btn">Submit Review</button>
+        </div>
+      </form>
     </div>
+  </div>
+  
+  <div class="classification-footer">
+    FOR DEMO & MVP PURPOSES
   </div>
 </div>

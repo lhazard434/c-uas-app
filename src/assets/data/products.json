@@ -112,7 +112,7 @@
       "category": "Electronic Warfare",
       "price": "$67,900",
       "description": "Compact counter-drone and communications jamming system optimized for fixed-site protection of critical infrastructure. Employs intelligent frequency hopping detection and selective jamming to minimize collateral interference while maximizing threat neutralization.",
-      "image": "https://images.unsplash.com/photo-1589254065878-42c9da997008?w=640&q=80",
+      "image": "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=640&q=80",
       "specifications": [
         "Fixed or semi-mobile deployment",
         "Coverage radius: 2.5 km",
@@ -132,7 +132,7 @@
       "manufacturer": "Vanguard Communications Defense",
       "category": "Electronic Warfare",
       "price": "$156,000",
-      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=640&q=80",
+      "image": "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=640&q=80",
       "description": "Next-generation airborne electronic warfare pod designed for helicopter and UAV integration. Provides persistent area denial against hostile drones, communications, and radar systems with software-defined radio architecture for rapid mission reconfiguration.",
       "specifications": [
         "Airborne platform compatible",
@@ -153,7 +153,7 @@
       "manufacturer": "Fortress Electronic Warfare",
       "category": "Electronic Warfare",
       "price": "$198,500",
-      "image": "https://images.unsplash.com/photo-1569025690938-a00729c9e1f9?w=640&q=80",
+      "image": "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=640&q=80",
       "description": "Ruggedized all-in-one electronic warfare platform built for convoy protection and mobile operations. Combines signals intelligence, electronic attack, and cyber-electronic warfare capabilities in a vehicle-integrated system with autonomous threat response.",
       "specifications": [
         "Full-spectrum EW capabilities",
@@ -206,6 +206,168 @@
           "transportability": "Compact design but requires specialized transport due to jet fuel requirements."
         },
         "date": "2024-10-10"
+      },
+      {
+        "id": 3,
+        "author": "Jessica Martinez",
+        "milService": "Army",
+        "role": "Air Defense Technician",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "reliability": "VTOL capability makes it incredibly versatile for deployment scenarios.",
+          "detection": "High-G maneuvers allow it to intercept even the fastest threats."
+        },
+        "date": "2024-11-12"
+      },
+      {
+        "id": 4,
+        "author": "Robert Kim",
+        "milService": "Navy",
+        "role": "Surface Warfare Officer",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "interoperability": "Perfect integration with our naval air defense network.",
+          "easeOfUse": "Autonomous operations reduce crew workload significantly."
+        },
+        "date": "2024-11-08"
+      },
+      {
+        "id": 5,
+        "author": "Daniel Lee",
+        "milService": "Marines",
+        "role": "Air Defense Officer",
+        "categoryRatings": {
+          "transportability": 3,
+          "easeOfUse": 4,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 4
+        },
+        "additionalComments": {
+          "transportability": "Fuel logistics can be challenging in remote locations.",
+          "detection": "Intercepts cruise missiles with impressive accuracy."
+        },
+        "date": "2024-11-05"
+      },
+      {
+        "id": 6,
+        "author": "Amanda White",
+        "milService": "Air Force",
+        "role": "Air Battle Manager",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "interoperability": "Lattice AI integration provides excellent situational awareness.",
+          "reliability": "Quick turnaround time is critical for sustained operations."
+        },
+        "date": "2024-11-02"
+      },
+      {
+        "id": 7,
+        "author": "Thomas Anderson",
+        "milService": "Army",
+        "role": "Battalion Commander",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "easeOfUse": "Training time is minimal. Crews become proficient quickly.",
+          "detection": "Successfully intercepted multiple drone swarms in testing."
+        },
+        "date": "2024-10-30"
+      },
+      {
+        "id": 8,
+        "author": "Rachel Green",
+        "milService": "Air Force",
+        "role": "Missile Defense Specialist",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 4
+        },
+        "additionalComments": {
+          "reliability": "Weather conditions can affect refueling time slightly.",
+          "detection": "High subsonic speed gives excellent intercept envelope."
+        },
+        "date": "2024-10-28"
+      },
+      {
+        "id": 9,
+        "author": "Christopher Hall",
+        "milService": "Navy",
+        "role": "Combat Systems Officer",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 4,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "interoperability": "Works well with existing naval defense systems.",
+          "easeOfUse": "Learning curve exists but worth the investment."
+        },
+        "date": "2024-10-25"
+      },
+      {
+        "id": 10,
+        "author": "Michelle Davis",
+        "milService": "Army",
+        "role": "Air Defense Commander",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "reliability": "Reusability significantly reduces operational costs long-term.",
+          "detection": "Autonomous tracking handles multiple simultaneous threats."
+        },
+        "date": "2024-10-22"
+      },
+      {
+        "id": 11,
+        "author": "Kevin Brown",
+        "milService": "Marines",
+        "role": "Aviation Officer",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "easeOfUse": "Vertical landing capability is impressive and practical.",
+          "interoperability": "Integrates with multiple command platforms seamlessly."
+        },
+        "date": "2024-10-20"
       }
     ],
     "2": [
@@ -262,6 +424,168 @@
           "interoperability": "Works well with our systems but integration could be smoother."
         },
         "date": "2024-10-20"
+      },
+      {
+        "id": 4,
+        "author": "Lauren Wilson",
+        "milService": "Army",
+        "role": "Platoon Leader",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "transportability": "Easy to carry on patrol. Doesn't slow us down at all.",
+          "detection": "7km range gives us early warning we desperately need."
+        },
+        "date": "2024-11-14"
+      },
+      {
+        "id": 5,
+        "author": "Marcus Taylor",
+        "milService": "Marines",
+        "role": "Force Reconnaissance",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 4,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "easeOfUse": "Haptic feedback works perfectly even in high-noise environments.",
+          "interoperability": "Remote ID integration helps identify friendly vs hostile."
+        },
+        "date": "2024-11-11"
+      },
+      {
+        "id": 6,
+        "author": "Sophia Garcia",
+        "milService": "Air Force",
+        "role": "Security Forces",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 4
+        },
+        "additionalComments": {
+          "reliability": "Battery holds up well but keeping spares is essential.",
+          "detection": "AI/ML drone identification is incredibly accurate."
+        },
+        "date": "2024-11-09"
+      },
+      {
+        "id": 7,
+        "author": "Brandon Harris",
+        "milService": "Army",
+        "role": "Combat Engineer",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 4,
+          "interoperability": 4,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "easeOfUse": "LCD display is clear and readable in bright sunlight.",
+          "transportability": "Handheld design is perfect for quick deployment scenarios."
+        },
+        "date": "2024-11-06"
+      },
+      {
+        "id": 8,
+        "author": "Jessica Moore",
+        "milService": "Navy",
+        "role": "Master-at-Arms",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "interoperability": "Aeroscope integration provides excellent threat intelligence.",
+          "reliability": "Proven reliable in maritime environment with salt exposure."
+        },
+        "date": "2024-11-03"
+      },
+      {
+        "id": 9,
+        "author": "Anthony Clark",
+        "milService": "Marines",
+        "role": "Security Chief",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 4,
+          "detection": 5,
+          "reliability": 4
+        },
+        "additionalComments": {
+          "detection": "Omnidirectional antennas mean no blind spots.",
+          "reliability": "Rugged build but needs protection from extreme cold."
+        },
+        "date": "2024-10-31"
+      },
+      {
+        "id": 10,
+        "author": "Nicole Lewis",
+        "milService": "Army",
+        "role": "Squad Leader",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "easeOfUse": "Squad members picked it up in less than an hour of training.",
+          "detection": "Continuously updated drone library keeps us ahead of threats."
+        },
+        "date": "2024-10-27"
+      },
+      {
+        "id": 11,
+        "author": "Ryan Walker",
+        "milService": "Air Force",
+        "role": "Base Defense",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "reliability": "2,500+ units deployed globally speaks to its effectiveness.",
+          "transportability": "American-made quality with excellent portability."
+        },
+        "date": "2024-10-24"
+      },
+      {
+        "id": 12,
+        "author": "Ashley Young",
+        "milService": "Marines",
+        "role": "Intelligence Analyst",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 4,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 4
+        },
+        "additionalComments": {
+          "detection": "PNT attack capability adds an important non-kinetic option.",
+          "easeOfUse": "Visual alerts are clear and easy to interpret quickly."
+        },
+        "date": "2024-10-21"
       }
     ],
     "3": [
@@ -318,6 +642,1168 @@
           "detection": "Frequency coverage is impressive. EA capabilities are powerful."
         },
         "date": "2024-10-18"
+      },
+      {
+        "id": 4,
+        "author": "Patricia Miller",
+        "milService": "Army",
+        "role": "Electronic Warfare Officer",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "detection": "16 simultaneous demodulators provide exceptional coverage.",
+          "transportability": "Under 4 lbs makes it easy to carry on extended missions."
+        },
+        "date": "2024-11-13"
+      },
+      {
+        "id": 5,
+        "author": "William Jackson",
+        "milService": "Navy",
+        "role": "Information Warfare Officer",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "interoperability": "Reaper plug-in integration with ATAK is outstanding.",
+          "reliability": "8-hour battery life is perfect for our operational tempo."
+        },
+        "date": "2024-11-10"
+      },
+      {
+        "id": 6,
+        "author": "Maria Gonzalez",
+        "milService": "Marines",
+        "role": "Signals Intelligence Chief",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 4,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 4
+        },
+        "additionalComments": {
+          "detection": "80 MHz bandwidth per channel catches everything we need.",
+          "easeOfUse": "Initial setup requires technical knowledge but operation is smooth."
+        },
+        "date": "2024-11-07"
+      },
+      {
+        "id": 7,
+        "author": "Charles Martinez",
+        "milService": "Army",
+        "role": "SIGINT Operator",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "transportability": "Compatible with standard military batteries is a huge plus.",
+          "reliability": "MIL-STD-810G rating proven in extreme temperatures."
+        },
+        "date": "2024-11-04"
+      },
+      {
+        "id": 8,
+        "author": "Barbara Lee",
+        "milService": "Air Force",
+        "role": "Intelligence Specialist",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "interoperability": "Multi-protocol support covers all our surveillance needs.",
+          "detection": "Direction finding accuracy is excellent for threat location."
+        },
+        "date": "2024-11-01"
+      },
+      {
+        "id": 9,
+        "author": "Joseph Taylor",
+        "milService": "Army",
+        "role": "Communications Sergeant",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 4,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "easeOfUse": "Transmit capabilities for jamming are straightforward to use.",
+          "reliability": "Dedicated EA port provides reliable electronic attack options."
+        },
+        "date": "2024-10-29"
+      },
+      {
+        "id": 10,
+        "author": "Jennifer Davis",
+        "milService": "Marines",
+        "role": "Radio Battalion Chief",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 4
+        },
+        "additionalComments": {
+          "transportability": "Lightweight design doesn't compromise functionality.",
+          "reliability": "Excellent overall but antenna connections need careful handling."
+        },
+        "date": "2024-10-26"
+      },
+      {
+        "id": 11,
+        "author": "Daniel Rodriguez",
+        "milService": "Navy",
+        "role": "Cryptologic Technician",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "detection": "Frequency range from 500 kHz to 6 GHz covers everything.",
+          "interoperability": "Integration with existing systems was plug-and-play."
+        },
+        "date": "2024-10-23"
+      }
+    ],
+    "4": [
+      {
+        "id": 1,
+        "author": "Marcus Rivera",
+        "milService": "Army",
+        "role": "Electronic Warfare Specialist",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "detection": "AI-powered threat classification is incredibly accurate and fast.",
+          "easeOfUse": "Setup took less than 30 minutes. Interface is very user-friendly."
+        },
+        "date": "2024-11-08"
+      },
+      {
+        "id": 2,
+        "author": "Jennifer Walsh",
+        "milService": "Marines",
+        "role": "Communications Officer",
+        "categoryRatings": {
+          "transportability": 3,
+          "easeOfUse": 5,
+          "interoperability": 4,
+          "detection": 5,
+          "reliability": 4
+        },
+        "additionalComments": {
+          "transportability": "Vehicle-mounted system requires proper installation. Not as portable as handheld units.",
+          "reliability": "Occasional need to recalibrate after long drives on rough terrain."
+        },
+        "date": "2024-11-02"
+      },
+      {
+        "id": 3,
+        "author": "Timothy Jackson",
+        "milService": "Army",
+        "role": "Signal Corps Officer",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 4,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "interoperability": "Integrated perfectly with our existing command and control systems.",
+          "detection": "Wide spectrum coverage caught threats other systems missed."
+        },
+        "date": "2024-10-29"
+      },
+      {
+        "id": 4,
+        "author": "Sandra Peterson",
+        "milService": "Air Force",
+        "role": "Cyber Warfare Officer",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "detection": "360-degree coverage eliminates blind spots completely.",
+          "reliability": "500W output provides excellent jamming effectiveness."
+        },
+        "date": "2024-11-15"
+      },
+      {
+        "id": 5,
+        "author": "Gregory Scott",
+        "milService": "Army",
+        "role": "Convoy Commander",
+        "categoryRatings": {
+          "transportability": 3,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "easeOfUse": "Adaptive jamming algorithms work automatically. Minimal operator input needed.",
+          "transportability": "Vehicle integration kit made installation straightforward."
+        },
+        "date": "2024-11-12"
+      },
+      {
+        "id": 6,
+        "author": "Rebecca Turner",
+        "milService": "Navy",
+        "role": "Electronic Warfare Technician",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 4
+        },
+        "additionalComments": {
+          "interoperability": "GPS spoofing capabilities integrate well with our defensive suite.",
+          "reliability": "Power supply needs to be stable for optimal performance."
+        },
+        "date": "2024-11-09"
+      },
+      {
+        "id": 7,
+        "author": "Kenneth Hall",
+        "milService": "Marines",
+        "role": "Motor Transport Officer",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 4,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "transportability": "Once installed, it's solid. Takes about 2 hours for initial setup.",
+          "detection": "Real-time spectrum monitoring catches new threats immediately."
+        },
+        "date": "2024-11-06"
+      },
+      {
+        "id": 8,
+        "author": "Diana Wright",
+        "milService": "Army",
+        "role": "Signal Officer",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "easeOfUse": "Automated threat prioritization is incredibly helpful in complex environments.",
+          "interoperability": "MIL-STD-461 compliance ensures compatibility across platforms."
+        },
+        "date": "2024-11-03"
+      },
+      {
+        "id": 9,
+        "author": "Frank Collins",
+        "milService": "Air Force",
+        "role": "Ground Defense Commander",
+        "categoryRatings": {
+          "transportability": 3,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "detection": "5km effective range provides excellent protection perimeter.",
+          "reliability": "System runs continuously without issues during extended operations."
+        },
+        "date": "2024-10-31"
+      },
+      {
+        "id": 10,
+        "author": "Laura Bennett",
+        "milService": "Army",
+        "role": "Electronic Warfare Planner",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "interoperability": "Frequency range from 20 MHz to 18 GHz covers all our needs.",
+          "easeOfUse": "Training package is comprehensive and well-designed."
+        },
+        "date": "2024-10-28"
+      },
+      {
+        "id": 11,
+        "author": "Victor Hughes",
+        "milService": "Marines",
+        "role": "Communications Platoon Commander",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 4,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "detection": "AI threat analysis reduces false positives significantly.",
+          "transportability": "Mounting system is robust and handles rough terrain well."
+        },
+        "date": "2024-10-25"
+      }
+    ],
+    "5": [
+      {
+        "id": 1,
+        "author": "Christopher Hayes",
+        "milService": "Special Operations",
+        "role": "Communications Sergeant",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "transportability": "Perfect for our rapid deployment needs. 25 lbs is very manageable.",
+          "easeOfUse": "Touch-screen interface works well even with gloves on. Quick deployment is crucial for us."
+        },
+        "date": "2024-11-10"
+      },
+      {
+        "id": 2,
+        "author": "Angela Morrison",
+        "milService": "Army",
+        "role": "Electronic Warfare Officer",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 4,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 4
+        },
+        "additionalComments": {
+          "reliability": "Battery life is solid but would prefer 10+ hours for extended missions.",
+          "detection": "Direction finding is extremely accurate. Helped us locate threats quickly."
+        },
+        "date": "2024-11-03"
+      },
+      {
+        "id": 3,
+        "author": "Derek Patterson",
+        "milService": "Marines",
+        "role": "Intelligence Officer",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 4,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "interoperability": "Blue Force Tracker integration is good but requires some configuration.",
+          "transportability": "Modular antenna system makes packing and setup very efficient."
+        },
+        "date": "2024-10-27"
+      },
+      {
+        "id": 4,
+        "author": "Samantha Brooks",
+        "milService": "Special Operations",
+        "role": "Team Leader",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "transportability": "Backpack design distributes weight well. Easy to carry on long missions.",
+          "easeOfUse": "Deployment in under 5 minutes is accurate and critical for us."
+        },
+        "date": "2024-11-16"
+      },
+      {
+        "id": 5,
+        "author": "Nathan Price",
+        "milService": "Army",
+        "role": "Special Forces Operator",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "detection": "Dual-band operation lets us monitor multiple threats simultaneously.",
+          "reliability": "Encrypted data links provide excellent OPSEC for our missions."
+        },
+        "date": "2024-11-13"
+      },
+      {
+        "id": 6,
+        "author": "Olivia Russell",
+        "milService": "Marines",
+        "role": "Radio Reconnaissance Officer",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 4
+        },
+        "additionalComments": {
+          "interoperability": "Integration with our existing systems was seamless.",
+          "reliability": "Battery performance is good but cold weather reduces runtime."
+        },
+        "date": "2024-11-10"
+      },
+      {
+        "id": 7,
+        "author": "Ethan Cooper",
+        "milService": "Navy",
+        "role": "SEAL Communications",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "transportability": "Lightweight enough for airborne insertion operations.",
+          "detection": "±2 degree direction finding accuracy is outstanding."
+        },
+        "date": "2024-11-07"
+      },
+      {
+        "id": 8,
+        "author": "Isabella Martinez",
+        "milService": "Army",
+        "role": "Civil Affairs Officer",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 4,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "easeOfUse": "Touch-screen is intuitive but takes practice to master all features.",
+          "detection": "30 MHz to 6 GHz range covers commercial and military bands."
+        },
+        "date": "2024-11-04"
+      },
+      {
+        "id": 9,
+        "author": "Aaron Ward",
+        "milService": "Special Operations",
+        "role": "Intelligence Sergeant",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "reliability": "System has proven reliable in desert, jungle, and arctic conditions.",
+          "transportability": "Modular design allows configuration based on mission needs."
+        },
+        "date": "2024-11-01"
+      },
+      {
+        "id": 10,
+        "author": "Melissa King",
+        "milService": "Marines",
+        "role": "Reconnaissance Team Leader",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 4
+        },
+        "additionalComments": {
+          "detection": "SIGINT capabilities provide excellent intelligence gathering.",
+          "reliability": "6-8 hour battery life is adequate but spare batteries are essential."
+        },
+        "date": "2024-10-29"
+      },
+      {
+        "id": 11,
+        "author": "Tyler Foster",
+        "milService": "Army",
+        "role": "Ranger Platoon Leader",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "transportability": "Perfect for air assault and airborne operations.",
+          "easeOfUse": "Training time is minimal. Operators become proficient quickly."
+        },
+        "date": "2024-10-26"
+      },
+      {
+        "id": 12,
+        "author": "Victoria Bell",
+        "milService": "Navy",
+        "role": "Special Warfare Operator",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "interoperability": "Works perfectly with our tactical communications suite.",
+          "detection": "Targeted jamming minimizes collateral effects on friendly systems."
+        },
+        "date": "2024-10-23"
+      }
+    ],
+    "6": [
+      {
+        "id": 1,
+        "author": "Patricia Coleman",
+        "milService": "Air Force",
+        "role": "Installation Security Officer",
+        "categoryRatings": {
+          "transportability": 3,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "easeOfUse": "Remote web interface makes monitoring multiple sites very convenient.",
+          "reliability": "Weatherproof design has performed flawlessly through severe storms."
+        },
+        "date": "2024-11-06"
+      },
+      {
+        "id": 2,
+        "author": "Raymond Foster",
+        "milService": "Army",
+        "role": "Base Defense Commander",
+        "categoryRatings": {
+          "transportability": 3,
+          "easeOfUse": 5,
+          "interoperability": 4,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "detection": "Multi-target tracking handles swarm scenarios effectively.",
+          "transportability": "Semi-mobile capability works for our needs but not truly portable."
+        },
+        "date": "2024-10-31"
+      },
+      {
+        "id": 3,
+        "author": "Nicole Sanders",
+        "milService": "Navy",
+        "role": "Force Protection Officer",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 4,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "interoperability": "Selective jamming minimizes interference with our own communications.",
+          "easeOfUse": "Automated logging saves hours of manual documentation work."
+        },
+        "date": "2024-10-23"
+      },
+      {
+        "id": 4,
+        "author": "Harold Simpson",
+        "milService": "Air Force",
+        "role": "Security Forces Commander",
+        "categoryRatings": {
+          "transportability": 3,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "detection": "2.5km coverage radius protects our entire critical infrastructure.",
+          "reliability": "IP67 weatherproof rating proven in harsh coastal environment."
+        },
+        "date": "2024-11-14"
+      },
+      {
+        "id": 5,
+        "author": "Carolyn Hughes",
+        "milService": "Army",
+        "role": "Installation Commander",
+        "categoryRatings": {
+          "transportability": 3,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "easeOfUse": "Web interface is accessible from any device with proper credentials.",
+          "interoperability": "Frequency hopping detection catches sophisticated threats."
+        },
+        "date": "2024-11-11"
+      },
+      {
+        "id": 6,
+        "author": "Gerald Powell",
+        "milService": "Navy",
+        "role": "Installation Security Chief",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "reliability": "350W power consumption is reasonable for continuous operation.",
+          "detection": "Tracking 30 simultaneous targets handles complex scenarios."
+        },
+        "date": "2024-11-08"
+      },
+      {
+        "id": 7,
+        "author": "Brenda Reed",
+        "milService": "Marines",
+        "role": "Security Battalion Commander",
+        "categoryRatings": {
+          "transportability": 3,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "transportability": "Fixed-site design is ideal for permanent installations.",
+          "easeOfUse": "Low probability of intercept mode provides covert protection."
+        },
+        "date": "2024-11-05"
+      },
+      {
+        "id": 8,
+        "author": "Eugene Cox",
+        "milService": "Air Force",
+        "role": "Cyber Defense Officer",
+        "categoryRatings": {
+          "transportability": 3,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "interoperability": "Selective frequency jamming prevents friendly fire on our networks.",
+          "detection": "400 MHz to 5.8 GHz covers all common drone frequencies."
+        },
+        "date": "2024-11-02"
+      },
+      {
+        "id": 9,
+        "author": "Phyllis Long",
+        "milService": "Army",
+        "role": "Critical Infrastructure Protection",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "reliability": "Automated threat logging provides excellent audit trail.",
+          "transportability": "Semi-mobile configuration allows repositioning when needed."
+        },
+        "date": "2024-10-30"
+      },
+      {
+        "id": 10,
+        "author": "Russell Barnes",
+        "milService": "Navy",
+        "role": "Port Security Commander",
+        "categoryRatings": {
+          "transportability": 3,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "easeOfUse": "Remote operation capability is essential for distributed security.",
+          "detection": "Intelligent jamming minimizes collateral interference."
+        },
+        "date": "2024-10-27"
+      },
+      {
+        "id": 11,
+        "author": "Gloria Fisher",
+        "milService": "Air Force",
+        "role": "Base Operations Officer",
+        "categoryRatings": {
+          "transportability": 3,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "reliability": "System uptime is exceptional. Very low maintenance requirements.",
+          "interoperability": "Integrates with existing base security monitoring systems."
+        },
+        "date": "2024-10-24"
+      }
+    ],
+    "7": [
+      {
+        "id": 1,
+        "author": "Kevin Mitchell",
+        "milService": "Army",
+        "role": "Aviation Electronic Warfare Officer",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "interoperability": "SDR architecture allows us to update mission profiles on the fly.",
+          "detection": "Effective range of 8km gives us excellent standoff capability."
+        },
+        "date": "2024-11-09"
+      },
+      {
+        "id": 2,
+        "author": "Amanda Torres",
+        "milService": "Marines",
+        "role": "UAS Pilot",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 4,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "easeOfUse": "Integration with our UAV platform required some tweaking but works great now.",
+          "reliability": "Dual redundant systems provide excellent confidence for critical missions."
+        },
+        "date": "2024-11-01"
+      },
+      {
+        "id": 3,
+        "author": "Gregory Phillips",
+        "milService": "Air Force",
+        "role": "Electronic Warfare Technician",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 4
+        },
+        "additionalComments": {
+          "transportability": "Pod configuration makes swapping between platforms very straightforward.",
+          "reliability": "Performs well but needs careful maintenance in dusty environments."
+        },
+        "date": "2024-10-26"
+      },
+      {
+        "id": 4,
+        "author": "Heather Morgan",
+        "milService": "Army",
+        "role": "Apache Pilot",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "detection": "100 MHz to 20 GHz frequency coverage is comprehensive.",
+          "interoperability": "Tactical mesh network integration enhances coordination."
+        },
+        "date": "2024-11-15"
+      },
+      {
+        "id": 5,
+        "author": "Craig Stewart",
+        "milService": "Navy",
+        "role": "Helicopter Electronic Warfare Officer",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "transportability": "45 lbs is manageable for pod mounting on various platforms.",
+          "easeOfUse": "Programmable waveform generation provides mission flexibility."
+        },
+        "date": "2024-11-12"
+      },
+      {
+        "id": 6,
+        "author": "Janet Roberts",
+        "milService": "Marines",
+        "role": "Aviation Electronic Technician",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "reliability": "Dual redundancy ensures mission success even if one system fails.",
+          "detection": "Real-time mission updates via datalink are game-changing."
+        },
+        "date": "2024-11-09"
+      },
+      {
+        "id": 7,
+        "author": "Roy Henderson",
+        "milService": "Air Force",
+        "role": "Drone Operator",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 4,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "easeOfUse": "SDR interface requires training but offers incredible versatility.",
+          "transportability": "Easy to integrate with MQ-9 and other platforms."
+        },
+        "date": "2024-11-06"
+      },
+      {
+        "id": 8,
+        "author": "Denise Cooper",
+        "milService": "Army",
+        "role": "Aviation Mission Commander",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "interoperability": "Seamless integration with existing aviation systems.",
+          "detection": "15,000 ft operating altitude provides excellent coverage."
+        },
+        "date": "2024-11-03"
+      },
+      {
+        "id": 9,
+        "author": "Jesse Murphy",
+        "milService": "Navy",
+        "role": "MH-60 Pilot",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 4
+        },
+        "additionalComments": {
+          "reliability": "Performance is excellent but requires regular calibration.",
+          "detection": "Area denial capabilities are highly effective against hostile systems."
+        },
+        "date": "2024-10-31"
+      },
+      {
+        "id": 10,
+        "author": "Teresa Patterson",
+        "milService": "Air Force",
+        "role": "Electronic Combat Officer",
+        "categoryRatings": {
+          "transportability": 5,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "easeOfUse": "Software-defined approach simplifies updates and modifications.",
+          "interoperability": "Works perfectly with our command and control architecture."
+        },
+        "date": "2024-10-28"
+      },
+      {
+        "id": 11,
+        "author": "Larry Griffin",
+        "milService": "Marines",
+        "role": "VMM Squadron Commander",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "transportability": "Pod design allows quick installation and removal.",
+          "detection": "Persistent area denial is critical for our operations."
+        },
+        "date": "2024-10-25"
+      }
+    ],
+    "8": [
+      {
+        "id": 1,
+        "author": "Brian Campbell",
+        "milService": "Army",
+        "role": "Convoy Commander",
+        "categoryRatings": {
+          "transportability": 3,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "easeOfUse": "Autonomous threat response has saved us multiple times. Very impressed.",
+          "detection": "Full-spectrum coverage catches everything. Cyber-EW integration is a force multiplier."
+        },
+        "date": "2024-11-07"
+      },
+      {
+        "id": 2,
+        "author": "Melissa Barnes",
+        "milService": "Marines",
+        "role": "Electronic Warfare Chief",
+        "categoryRatings": {
+          "transportability": 3,
+          "easeOfUse": 4,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "reliability": "Cooling system keeps it running during extended convoy operations in extreme heat.",
+          "transportability": "Rack-mount design is solid but this is definitely a vehicle-only system."
+        },
+        "date": "2024-11-04"
+      },
+      {
+        "id": 3,
+        "author": "Steven Wright",
+        "milService": "Army",
+        "role": "Signal Intelligence Officer",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "interoperability": "Network-centric warfare integration provides real-time intel sharing across units.",
+          "easeOfUse": "Two-operator setup is efficient. Training was comprehensive and well-designed."
+        },
+        "date": "2024-10-30"
+      },
+      {
+        "id": 4,
+        "author": "Deborah James",
+        "milService": "Air Force",
+        "role": "Combat Communications Officer",
+        "categoryRatings": {
+          "transportability": 3,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "detection": "10 MHz to 40 GHz range is the most comprehensive we've seen.",
+          "reliability": "1000W jamming capability is extremely effective."
+        },
+        "date": "2024-11-16"
+      },
+      {
+        "id": 5,
+        "author": "Paul Richardson",
+        "milService": "Army",
+        "role": "Brigade Electronic Warfare Officer",
+        "categoryRatings": {
+          "transportability": 3,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "easeOfUse": "Autonomous threat detection reduces operator workload significantly.",
+          "interoperability": "Multi-function phased array antennas provide excellent coverage."
+        },
+        "date": "2024-11-13"
+      },
+      {
+        "id": 6,
+        "author": "Kathleen Watson",
+        "milService": "Navy",
+        "role": "Surface Electronic Warfare Officer",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "reliability": "Cooling system is essential and works flawlessly.",
+          "detection": "SIGINT and electronic attack combination is powerful."
+        },
+        "date": "2024-11-10"
+      },
+      {
+        "id": 7,
+        "author": "Gary Peterson",
+        "milService": "Marines",
+        "role": "Motor Transport Battalion Commander",
+        "categoryRatings": {
+          "transportability": 3,
+          "easeOfUse": 4,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "transportability": "Installation takes time but once mounted, it's rock solid.",
+          "easeOfUse": "Two operators can manage complex scenarios effectively."
+        },
+        "date": "2024-11-07"
+      },
+      {
+        "id": 8,
+        "author": "Susan Bailey",
+        "milService": "Army",
+        "role": "Cyber Electronic Warfare Officer",
+        "categoryRatings": {
+          "transportability": 3,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "interoperability": "Cyber-EW integration module opens up new tactical options.",
+          "easeOfUse": "Automated response protocols work exceptionally well."
+        },
+        "date": "2024-11-04"
+      },
+      {
+        "id": 9,
+        "author": "Carl Rivera",
+        "milService": "Air Force",
+        "role": "Ground Mobile Systems Officer",
+        "categoryRatings": {
+          "transportability": 4,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "reliability": "Extended operations capability is critical for our mission sets.",
+          "detection": "Full-spectrum EW capabilities provide comprehensive protection."
+        },
+        "date": "2024-11-01"
+      },
+      {
+        "id": 10,
+        "author": "Ruth Howard",
+        "milService": "Army",
+        "role": "Battalion S6",
+        "categoryRatings": {
+          "transportability": 3,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "interoperability": "Network-centric design integrates perfectly with our C4ISR systems.",
+          "easeOfUse": "Training program prepares operators thoroughly."
+        },
+        "date": "2024-10-29"
+      },
+      {
+        "id": 11,
+        "author": "Peter Sullivan",
+        "milService": "Marines",
+        "role": "Regimental Communications Officer",
+        "categoryRatings": {
+          "transportability": 3,
+          "easeOfUse": 5,
+          "interoperability": 5,
+          "detection": 5,
+          "reliability": 5
+        },
+        "additionalComments": {
+          "detection": "Signals intelligence capabilities provide excellent situational awareness.",
+          "reliability": "Ruggedized design withstands harsh mobile environments."
+        },
+        "date": "2024-10-26"
       }
     ]
   }

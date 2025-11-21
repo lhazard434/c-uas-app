@@ -1,31 +1,204 @@
 .header {
-  background-color: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  padding: 1rem 10px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #1a365d;
+  border-bottom: 3px solid #b8860b;
+  padding: 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.classification-banner {
+  background: #006400;
+  color: white;
+  text-align: center;
+  padding: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  border-bottom: 2px solid #b8860b;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 1rem 20px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dod-emblem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  
+  svg {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  }
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .home-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #1a1a1a;
+  color: #ffffff;
   text-decoration: none;
-  font-size: 20px;
-  font-weight: 600;
   padding: 8px 0;
-  border-radius: 6px;
   transition: all 0.2s;
   
+  .title-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .main-title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  
+  .subtitle {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+  
   &:hover {
-    color: #2563eb;
+    color: #b8860b;
+  }
+}
+
+.user-email {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  border: 1px solid rgba(184, 134, 11, 0.3);
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.admin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #1a365d;
+  background: #b8860b;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 2px solid #b8860b;
+  white-space: nowrap;
+  
+  &:hover {
+    background: #d4a017;
+    border-color: #d4a017;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+.logout-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  font-family: inherit;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem 15px;
+  }
+
+  .container {
+    gap: 10px;
+  }
+
+  .nav-right {
+    gap: 10px;
+  }
+
+  .home-btn {
+    font-size: 18px;
+  }
+
+  .user-email {
+    display: none;
+  }
+
+  .admin-btn,
+  .logout-btn {
+    font-size: 14px;
+    padding: 8px 12px;
+
+    span {
+      display: none;
+    }
+
+    svg {
+      margin: 0;
+    }
   }
 }

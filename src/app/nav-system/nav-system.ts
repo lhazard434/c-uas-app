@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ProductService } from '../product.service';
+import { AuthService } from '../auth.service';
 
 interface Product {
   id: number;
@@ -25,7 +26,10 @@ interface Product {
 export class NavSystem implements OnInit {
   products: Product[] = [];
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    public authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     const allProducts = this.productService.getAllProducts();
@@ -43,9 +47,7 @@ export class NavSystem implements OnInit {
         reviewCount: categoryRatings.count
       };
     });
-  }
-
-  getStarFillPercentage(starPosition: number, rating: number): number {
+  }  getStarFillPercentage(starPosition: number, rating: number): number {
     if (rating >= starPosition) {
       return 100;
     } else if (rating > starPosition - 1) {

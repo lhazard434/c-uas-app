@@ -1,6 +1,23 @@
 <div class="container">
+  <div class="security-notice">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    </svg>
+    <span>This system is for authorized U.S. Government users only. Use constitutes consent to monitoring and recording.</span>
+  </div>
+  
   <div class="header-section">
-    <h1>Counter UAS Systems</h1>
+    <div class="title-area">
+      <h1>H4D - Tartans 4 Defense</h1>
+      <h2>Counter-UAS Equipment Assessment Database</h2>
+    </div>
+    <a routerLink="/admin" [queryParams]="{tab: 'add-product'}" class="add-product-btn" *ngIf="authService.isAdmin()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+      </svg>
+      <span>Add New System</span>
+    </a>
   </div>
 
   <div class="products-grid">
