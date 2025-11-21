@@ -1,1 +1,115 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Military theme color variables
+:root {
+  --navy: #1a365d;
+  --gold: #b8860b;
+  --cmured: #C41230;
+  --light-gray: #f8fafc;
+  --medium-gray: #e2e8f0;
+  --dark-gray: #64748b;
+}
+
+// Common button styles
+.btn {
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 2px solid;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+
+  &:hover {
+    background: #d4a017;
+    border-color: #d4a017;
+  }
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--dark-gray);
+  border-color: var(--medium-gray);
+
+  &:hover {
+    background: var(--light-gray);
+    border-color: var(--dark-gray);
+  }
+}
+
+.btn-success {
+  background: var(--navy);
+  color: white;
+  border-color: var(--navy);
+
+  &:hover {
+    background: #2d3748;
+    border-color: #2d3748;
+  }
+}
+
+// Card styles
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 30px;
+}
+
+// Form styles
+.form-group {
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--medium-gray);
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+
+    &:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+}
+
+// Loading spinner
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid var(--gold);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
